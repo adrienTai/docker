@@ -1,13 +1,13 @@
 30/11/2024 - maj 11/02/2025
 
-### Environnements de développement WEB ###
+# Environnements de développement WEB #
 
-# Que contient ce dépôt ?
+## Que contient ce dépôt ? ##
 Des images docker, des fichiers docker-compose, et une doc pour l'utilisation de ces images. 
 Des serveurs web Apache, plusieurs versions de php, des services de cache, phpmyadmin, base de données,...
 Essentiellement des projets PHP et Symfony.
 
-# Quel est le but de ce dépôt ?
+## Quel est le but de ce dépôt ? ##
 Disposer de mes images docker, pour travailler à distance. 
 Sécuriser mes travaux, au cas où ma machine part au paradis des ordinateurs.
 Apprendre à créer des environnements docker :
@@ -21,23 +21,23 @@ Apprendre à créer des environnements docker :
 Pour finir, partager ces environnements, pour quiconque en aura besoin (licence GNU).
 
 
-# Quel est le but de ces images ?
+## Quel est le but de ces images ? ##
 Travailler sur des projets PHP, symfony (pour l'instant).
 Faire tourner mes anciens sites internet.
 Permettre une migration d'un projet PHP, pas à pas.
 Faire tourner mes futurs sites internet. 
 
-# Qu'est-ce qui viendra ensuite ?
+## Qu'est-ce qui viendra ensuite ? ##
 Des serveurs utilisant Nginx, Nginx + Apache, Nodes.js. (voir Annexe 1)
 Des outils de Scan du code.
 Peut-être d'autres applications des pratiques devOps.
 Des README en anglais.
 
-# Pré-recquis
+## Pré-recquis ##
 Savoir utiliser des commandes linux, connaître les bases des commandes docker.
 Enjoy ;)
 
-# Annexe 1 - Apache ou Nginx ?
+## Annexe 1 - Apache ou Nginx ?##
 Pour un environnement Web avec php, Apache ou Nginx couvrent la majorité des sites internet. 
 
 La différence principale que je note, c'est qu' apache (httpd) agit plus rapidement pour du contenu dynamique, car il inclut php.
@@ -63,7 +63,7 @@ S’il reçoit une demande de contenu statique, NGINX servira les fichiers direc
 Pour le contenu dynamique, NGINX transmet la demande à Apache, qui la traite et transfère le contenu final au client via NGINX.
 Mais alors, pourquoi utiliser un serveur apache en plus de NGINX, au lieu du seul processeur php-fpm ?
 
-## Conclusion
+### Conclusion ###
 Pour conclure, je vais construire une image apache, une image nginx, une image qui utilise les 2. 
 Apache sera pratique car plus modulable, pour simuler des configurations un peu dépassées.
 Nginx sera nécessaire, car plus adapté à un fort taux de connexion.
@@ -74,11 +74,11 @@ Source :
 https://www.hostinger.fr/tutoriels/apache-vs-nginx#NGINX_vs_Apache_%E2%80%93_Apercu_general
 
 
-# Annexe 2 - De quoi est constitué le paradis des ordinateurs ?
+## Annexe 2 - De quoi est constitué le paradis des ordinateurs ?##
 En l'écrivant, j'ai pensé fortement au livre de S-F Do Androids Dream of Electric Sheep? de Philip K.Dick.
 Qui a été renommé Blade Runner.
 Ne me parlez pas du film.
 
 
-# Annexe 3 - Faut-il écrire dans le readme quand j'ai bu trop de café ?
+## Annexe 3 - Faut-il écrire dans le readme quand j'ai bu trop de café ?##
 Ce Readme prend des allures étranges.
