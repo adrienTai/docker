@@ -63,7 +63,9 @@ S’il reçoit une demande de contenu statique, NGINX servira les fichiers direc
 Pour le contenu dynamique, NGINX transmet la demande à Apache, qui la traite et transfère le contenu final au client via NGINX.
 Mais alors, pourquoi utiliser un serveur apache en plus de NGINX, au lieu du seul processeur php-fpm ?
 
-## Conclusion ##
+
+### Conclusion Annexe 1 ###  
+
 Pour conclure, je vais construire une image apache, une image nginx, une image qui utilise les 2. 
 Apache sera pratique car plus modulable, pour simuler des configurations un peu dépassées.
 Nginx sera nécessaire, car plus adapté à un fort taux de connexion.
