@@ -37,7 +37,7 @@ Des README en anglais.
 Savoir utiliser des commandes linux, connaître les bases des commandes docker.
 Enjoy ;)
 
-## Annexe 1 - Apache ou Nginx ?##
+# Annexe 1 - Apache ou Nginx ? #
 Pour un environnement Web avec php, Apache ou Nginx couvrent la majorité des sites internet. 
 
 La différence principale que je note, c'est qu' apache (httpd) agit plus rapidement pour du contenu dynamique, car il inclut php.
@@ -63,7 +63,7 @@ S’il reçoit une demande de contenu statique, NGINX servira les fichiers direc
 Pour le contenu dynamique, NGINX transmet la demande à Apache, qui la traite et transfère le contenu final au client via NGINX.
 Mais alors, pourquoi utiliser un serveur apache en plus de NGINX, au lieu du seul processeur php-fpm ?
 
-### Conclusion ###
+## Conclusion ##
 Pour conclure, je vais construire une image apache, une image nginx, une image qui utilise les 2. 
 Apache sera pratique car plus modulable, pour simuler des configurations un peu dépassées.
 Nginx sera nécessaire, car plus adapté à un fort taux de connexion.
@@ -74,11 +74,11 @@ Source :
 https://www.hostinger.fr/tutoriels/apache-vs-nginx#NGINX_vs_Apache_%E2%80%93_Apercu_general
 
 
-## Annexe 2 - De quoi est constitué le paradis des ordinateurs ?##
+## Annexe 2 - De quoi est constitué le paradis des ordinateurs ? ##
 En l'écrivant, j'ai pensé fortement au livre de S-F Do Androids Dream of Electric Sheep? de Philip K.Dick.
 Qui a été renommé Blade Runner.
 Ne me parlez pas du film.
 
 
-## Annexe 3 - Faut-il écrire dans le readme quand j'ai bu trop de café ?##
+## Annexe 3 - Faut-il écrire dans le readme quand j'ai bu trop de café ? ##
 Ce Readme prend des allures étranges.
