@@ -1,0 +1,51 @@
+services:
+  php73:
+    build: ../images/php_7.3/.
+    ports:
+      - 8073:80
+    networks:
+      - my_network
+    tty: true
+    volumes:
+      - ~/Documents/WEB/docker/LAMP_legacy/apache_conf:/etc/apache2/sites-enabled
+      - ~/Documents/WEB/docker_apps/blog_symfony_legacy:/var/www
+    environment:
+      - VIRTUAL_HOST=localhost
+  php56:
+    build: ../images/php_5.6/.
+    ports:
+      - 8056:80
+    networks:
+      - my_network
+    tty: true
+    volumes:
+      - ~/Documents/WEB/docker/LAMP_legacy/apache_conf:/etc/apache2/sites-enabled
+      - ~/Documents/WEB/docker_apps/artistic_book_legacy:/var/www
+    environment:
+      - VIRTUAL_HOST=localhost
+  mysql5:
+    image: mysql:5.6
+    ports:
+      - 3308:3309
+    networks:
+      - my_network
+    environment:
+      MYSQL_ROOT_HOST: 127.0.0.1
+      MYSQL_DATABASE: db_debian_apps
+      MYSQL_ROOT_PASSWORD: 123456+
+      MYSQL_USER: wolff
+      MYSQL_PASSWORD: 123456+
+    volumes:
+      - ~/Documents/WEB/docker_apps/data/images/mysql:/var/lib/mysql # /home/mysql/mysql5/data
+  phpmyadmin:
+    image: phpmyadmin:5.2.2
+    ports:
+      - 8081:80
+    links:
+      - mysql5
+    networks:
+      - my_network
+    restart: always
+networks:
+  my_network:
+    driver: bridge
