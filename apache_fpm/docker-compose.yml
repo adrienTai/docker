@@ -1,28 +1,32 @@
 services:
-  php73:
-    build: ../images/php_7.3/.
+  httpd_serve:
+    build: 
+      args:
+        user: serve
+        uid: 1000
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - 8073:80
+      - 8080:80
+    depends_on:
+      - php73_fpm
     networks:
       - my_network
-    tty: true
     volumes:
-      - ~/Documents/WEB/docker/LAMP_legacy/apache_conf:/etc/apache2/sites-enabled
-      - ~/Documents/WEB/docker_apps/blog_symfony_legacy:/var/www
-    environment:
-      - VIRTUAL_HOST=localhost
-  php56:
-    build: ../images/php_5.6/.
+      - ~/Documents/WEB/docker_apps:/var/www
+  php73_fpm:
+    build: 
+      args:
+        user: serve
+        uid: 1000
+      context: ../images/php_7.3fpm/.
+      dockerfile: Dockerfile
     ports:
-      - 8056:80
+      - 7373:80
     networks:
       - my_network
-    tty: true
     volumes:
-      - ~/Documents/WEB/docker/LAMP_legacy/apache_conf:/etc/apache2/sites-enabled
-      - ~/Documents/WEB/docker_apps/artistic_book_legacy:/var/www
-    environment:
-      - VIRTUAL_HOST=localhost
+      - ~/Documents/WEB/docker_apps:/var/www
   mysql5:
     image: mysql:5.6
     ports:
