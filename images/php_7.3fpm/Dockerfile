@@ -33,6 +33,8 @@ RUN sed -i \
     -e "s/^;listen.owner = www-data.*/listen.owner = ${user}/" \
     -e "s/^;listen.group = www-data.*/listen.group = ${user}/" \
     -e "s/^listen = 127.0.0.1:9000.*/listen = 127.0.0.1:80/" \
+    -e 's/^;php_admin_value\[error_log\] = \/var\/log\/fpm-php.www.log.*/php_admin_value[error_log] = \/var\/log\/php\/fpm-php.www.log/' \
+    -e 's/^;php_admin_flag\[log_errors\] = on.*/php_admin_flag\[log_errors\] = on/' \
     /usr/local/etc/php-fpm.d/www.conf \
     && sed -i \
     -e "s/^user = www-data.*/user = ${user}/" \
@@ -43,7 +45,7 @@ RUN sed -i \
     /usr/local/etc/php-fpm.d/www.conf.default \
     && sed -i -e "s/^listen = 9000.*/listen = 80/" /usr/local/etc/php-fpm.d/zz-docker.conf
 
-# Create a user named 'composer' with the group 'www-data' (frequently used by php-fpm)
+# Create a user named 'composer' with the group 'composer'
 # Create a folder to stock conf and cache of composer, this folder is owned by the new user
 RUN addgroup -g 1001 composer \
     && printf '123456+123456+\n123456+123456+\n' | adduser -G composer -u 1001 -h /home/composer -s /sbin/nologin composer \
@@ -54,6 +56,8 @@ RUN addgroup -g 1001 composer \
     && addgroup -g $uid $user \
     && adduser -D -H -h /var/www -s /sbin/nologin -G $user -u $uid $user \
     && mkdir -p /var/www /sock /var/log/php \
+    && touch /var/log/php/fpm-php.www.log \
+    && chmod 666 /var/log/php/fpm-php.www.log \
     && chown -R $user:$user /var/www /usr/local/etc /sock /var/log/php
 
 USER $user:$user
