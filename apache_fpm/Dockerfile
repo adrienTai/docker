@@ -27,6 +27,9 @@ RUN sed -i -e 's/#Include\ conf\/extra\/httpd-vhosts.conf/Include\ conf\/extra\/
 RUN addgroup -g $uid $user \
     && adduser -D -H -h /var/www -s /sbin/nologin -G $user -u $uid $user \
     && mkdir -p /var/www /usr/local/apache2/logs \
+    && touch /usr/local/apache2/logs/error.log \
+    && touch /usr/local/apache2/logs/access.log \
+    && chmod 666 /usr/local/apache2/logs/access.log /usr/local/apache2/logs/error.log \
     && chown -R $user:$user /var/www /usr/local/apache2/logs
     
 # Change owner and group
