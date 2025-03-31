@@ -6,7 +6,7 @@ ARG user
 ARG uid
 
 # Install tools for linux machine basic operations
-RUN apk add --no-cache curl vim mysql-client msmtp libzip \
+RUN apk add --no-cache curl vim mysql-client msmtp libzip apache2-proxy\
 
 # Clean cache to reduce the docker image size
     && rm -rf /var/cache/apk/*
@@ -29,7 +29,7 @@ RUN addgroup -g $uid $user \
     && mkdir -p /var/www /usr/local/apache2/logs \
     && touch /usr/local/apache2/logs/error.log \
     && touch /usr/local/apache2/logs/access.log \
-    && chmod 666 /usr/local/apache2/logs/access.log /usr/local/apache2/logs/error.log \
+    && chmod 664 /usr/local/apache2/logs/access.log /usr/local/apache2/logs/error.log \
     && chown -R $user:$user /var/www /usr/local/apache2/logs
     
 # Change owner and group
@@ -45,6 +45,5 @@ CMD ["httpd-foreground"]
 LABEL description="Serveur Apache2"
 
 
-# If apache doesn't work, try to go into the container to restart the apache service :
+# To go into this container, try :
 # docker exec -it httpd_serve /bin/sh
-# $ service restart apache2
