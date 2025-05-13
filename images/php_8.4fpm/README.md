@@ -1,8 +1,9 @@
-Image PHP FPM version 8.4.5
+Image PHP FPM version 8.4.6
 
 J'ai choisi PHP-FPM pour son côté optimisé. 
 
-Je pars d'une image allégée, alpine, en précisant le Sha de l'image, pour plus de sécurité, au cas ou le pointeur de version soit déplacé.
+Je pars d'une image allégée, alpine, en précisant le Sha dans le tag de l'image. C'est pour plus de sécurité, au cas ou le pointeur de version soit déplacé.
+Ce tag@sha est spécifique à mon os : linux/amd64. Pour un autre OS, il faudra changer de Sha (ex d'auter OS : linux/386).
 J'installe le minimum dont j'ai besoin pour faire tourner PHP et ses extensions. Là aussi pour des raisons de sécurité, et de poids.
 
 Je me suis mis la contrainte de changer le port sur lequel communique php.
