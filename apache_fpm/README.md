@@ -53,3 +53,15 @@ ou depuis la console du container httpd_serve :
   $curl http://localhost:80
   
   Enjoy ! ;)
+  
+# Utiliser le service Mailpit avec Symfony
+Ajouter la configuration d email en bas du fichier .env : 
+    ###> symfony/mailer ###
+    MAILER_DSN=smtp://mailpit:1025
+    ###< symfony/mailer ###
+    
+L'interface mailpit sera disponible sur http://localhost:8025
+Documentation en local : http://localhost:8025/api/v1/
+
+Possibilité d'aller plus loin avec un système d'authentification et password.
+
