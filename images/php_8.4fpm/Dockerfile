@@ -2,7 +2,7 @@
 # Alpine linux is a tiny linux distribution (20MB)
 # We saved disk space, and it's more secure.
 # We use a pinned image version (@sha), for a garantee to get always the same build
-FROM php:8.4.5-fpm-alpine3.21@sha256:f5040868d0b089b4fc5e50334932aaf41c95a8815c9075a2e485c0e60383e3be AS php84_fpm
+FROM php:8.4.6-fpm-alpine3.21@sha256:a18334646a08844b20a34efe5541af644f41b40e2980a8d91bb70dc5c4e9a971 AS php84_fpm
 
 ARG uid
 ARG user
@@ -69,7 +69,7 @@ EXPOSE 80
 
 CMD ["php-fpm"]
 
-LABEL description="PHP-FPM 8.4.5"
+LABEL description="PHP-FPM 8.4.6"
 
 
 # After running this image, go into the container to start the apache service :
